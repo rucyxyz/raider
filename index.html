@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Raider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1># Message Raider</h1>
+
+        <div class="section">
+            <h2>トークン</h2>
+            <p class="note">カンマ / 改行 / スペースで区切る</p>
+            <textarea placeholder="MTM10Dc4MTE3NTIzMzIz1MzU*****,MTEwMDUsNj1c1NjQ1NjE2MTMwM*****,..."></textarea>
+        </div>
+
+        <div class="section">
+            <h2>サーバーID</h2>
+            <input type="text" placeholder="123456789012345678">
+        </div>
+
+        <div class="section">
+            <h2>チャンネルID</h2>
+            <p class="note">カンマ / 改行 / スペースで区切る</p>
+            <textarea placeholder="123456789012345678, 123456789012345678,..."></textarea>
+        </div>
+
+        <div class="section">
+            <h2>チャンネル自動取得</h2>
+            <p class="note">メッセージ内容</p>
+            <textarea placeholder="送信するメッセージを入力"></textarea>
+        </div>
+
+        <div class="section flex-row">
+            <div class="flex-item">
+                <h2>メッセージ送信間隔</h2>
+                <div class="input-group">
+                    <input type="number" value="0">
+                    <span>秒</span>
+                </div>
+            </div>
+            <div class="flex-item">
+                <h2>メッセージ送信上限</h2>
+                <div class="input-group">
+                    <input type="number" value="0">
+                    <span>回</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>メッセージ設定</h2>
+            <p class="note">メッセージのユーザーID</p>
+            <p class="note" style="margin-top: -4px;">カンマ / 改行 / スペースで区切る</p>
+            <textarea placeholder="123456789012345678, 123456789012345678"></textarea>
+        </div>
+
+        <div class="section">
+            <h2>メッセージ自動取得</h2>
+            <p class="note">メッセージ自動取得チャンネルID</p>
+            <p class="note" style="margin-top: -4px;">空の場合はメッセージのチャンネルIDを使用</p>
+            <input type="text" placeholder="チャンネルID">
+            
+            <div class="sub-section">
+                <div class="flex-row">
+                    <div class="flex-item">
+                        <label>取得する人数</label>
+                        <div class="input-group">
+                            <input type="number" value="100">
+                            <span>人</span>
+                            <button class="small-btn">総数取得</button>
+                        </div>
+                    </div>
+                    <div class="flex-item">
+                        <label>ランダムメッセージを取得する人数</label>
+                        <div class="input-group">
+                            <input type="number" value="1">
+                            <span>人</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>投票設定</h2>
+            <input type="text" placeholder="投票タイトル" style="margin-bottom: 8px;">
+            <p class="note">投票選択</p>
+            <p class="note" style="margin-top: -4px;">カンマ / 改行 / スペースで区切る</p>
+            <input type="text" placeholder="選択肢1, 選択肢2, ...">
+            <button class="small-btn" style="margin-top: 8px;">投票を強制終了</button>
+        </div>
+
+        <div class="section">
+            <h2>メッセージ転送設定</h2>
+            <p class="note">転送するメッセージURL</p>
+            <input type="text" placeholder="https://discord.com/channels/123456789012345678/123456789012345678/123456789012345678">
+        </div>
+
+        <div class="section">
+            <h2>リプライ設定</h2>
+            <div class="flex-row">
+                <div class="flex-item">
+                    <label>取得件数</label>
+                    <div class="input-group">
+                        <input type="number" value="20">
+                        <span>件</span>
+                        <button class="small-btn">履歴取得</button>
+                    </div>
+                </div>
+            </div>
+            <p class="note" style="margin-top: 10px;">リプライ先メッセージ（手動選択）</p>
+            <select disabled>
+                <option>-- 履歴を取得してから選択 --</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <h2>オンボーディング / 認証設定</h2>
+            <label class="checkbox-label">
+                <input type="checkbox"> オンボーディング &amp; 認証を自動解決
+            </label>
+            <p class="note" style="margin-top: 6px;">有効にすると、メンバーを許可したユーザーがオンボーディングと認証を自動で完了します。</p>
+            <p class="note">ユーザーの回答は1回だけ取得してキャッシュレス、全カウントで使用します。</p>
+        </div>
+
+        <div class="action-buttons">
+            <button id="executeBtn" class="btn execute">実行</button>
+            <button id="spamStopBtn" class="btn stop">スパム停止</button>
+            <button id="leaveBtn" class="btn leave">サーバー退出</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
